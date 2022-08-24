@@ -1,0 +1,28 @@
+let cartas = [
+	'bici coche (balón) bici coche peluche', // -> ✅
+	'(muñeca) consola bici', // ✅
+	'bici coche (balón bici coche', // -> ❌
+	'peluche (bici) [coche) (}bici coche balón', // -> ❌
+	'(peluche {) bici', // -> ❌
+	'() bici', // -> ❌
+];
+
+cartas = cartas.filter((letter) => {
+	letter = letter.split(' ');
+	let prohibidos = ['{'];
+	let esValido = true;
+	let a = letter.map((regalo) => {
+		let primerCaracter = regalo[0];
+		let ultimoCaracter = regalo[regalo.length - 1];
+	});
+
+	if (letter.includes('()')) {
+		esValido = false;
+	} else if (letter.includes('[')) {
+		esValido = false;
+	}
+    console.log(letter.toString().includes('['))
+	return esValido;
+});
+
+console.table(cartas);
